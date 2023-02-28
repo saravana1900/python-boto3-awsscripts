@@ -1,1 +1,1 @@
-# python-boto3-awsscripts
+# python-boto3-AWS scripts
