@@ -11,16 +11,15 @@ for region in regions:
     print ("\nListing Snapshots in region :: " +region)
 
     for snapshot in snapshots['Snapshots']:
-            snapshot_start_time=snapshot['StartTime'] #a
+            snapshot_start_time=snapshot['StartTime'] 
             #print(a)
-            snapshot_creation_date=snapshot_start_time.date()  #b
-            current_date=datetime.datetime.now().date()  #c
-            snapshot_age=current_date-snapshot_creation_date #d
+            snapshot_creation_date=snapshot_start_time.date()  
+            current_date=datetime.datetime.now().date()  
+            snapshot_age=current_date-snapshot_creation_date 
 
             try:
                  if snapshot_age.days >= 365 :
                    id = snapshot['SnapshotId']
-                   #des = snapshot['Description']
                    print ("\nListing SnapshotId =====>>>>" +id)
                    client.delete_snapshot(SnapshotId=id)
 
@@ -29,6 +28,4 @@ for region in regions:
 
                     if error_code != "None":
                       print ("Response :" +error_code)
-                      #print(id)
-                      #print(des)
                       continue
